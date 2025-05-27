@@ -47,7 +47,8 @@ console.log(getAvailableProducts(products));
 
 
 //4. 사용자 정보를 출력하는 함수 작성, 나이가 제공되지 않으면 기본값으로 18을 사용 
-function updateUser(user: {name: string, age?:number}): {name: string, age?: number} {
+// 나이가 없을때도 기본값(18)을 출력하기 때문에 age는 항상 리턴값이 있다.
+function updateUser(user: {name: string, age?:number}): {name: string, age: number} {
   // 나이가 제공되지 않으면 18로 설정
   //user.age ? user.age : user.age = 18;
   //return user;
