@@ -23,7 +23,7 @@ interface NewType {
 }
 
 
-//never : 잘 사용하지 않음 
+//never : 잘 사용하지 않음, 리턴값이 없다. 
 // function infinite():never {
 //     while(true) {
 //         console.log("무한굴레")
