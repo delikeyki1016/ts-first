@@ -37,7 +37,7 @@ console.log(checkArrayType("Hello")); // "This is not an array."
 console.log(checkArrayType({ key: "value" })); // "This is not an array."
 
 
-//문제4
+//문제4 : 객체의 모든 속성에 대해 기본값을 추가하는 타입을 작성 
 // Mapped Type 정의
 type WithDefault<T> = {
   [K in keyof T]: [T[K], T[K]];
@@ -55,7 +55,7 @@ type WithDefaults = WithDefault<Original>;
 // }
 
 
-//문제5
+//문제5 : 키와 값을 받아 객체를 생성하는 함수 
 // K extends PropertyKey : 키 타입이 객체에서 사용 가능한 키(string, number, symbol)만 허용되도록 제한
 function createObject<K extends PropertyKey, V>(key: K, value: V): { [P in K]: V } {
   return { [key]: value } as { [P in K]: V };
@@ -65,7 +65,7 @@ console.log(createObject("id", 123)); // { id: 123 }
 console.log(createObject("name", "Alice")); // { name: "Alice" }
 
 
-//문제6
+//문제6 : 특정속성만 추출하는 함수 작성 
 function pluck<T, K extends keyof T>(array: T[], key: K): T[K][] {
   return array.map((item) => item[key]);
 }
@@ -76,4 +76,6 @@ const users = [
 ];
 
 console.log(pluck(users, "id")); // [1, 2]
+// T = { id: number; name: string }
+// K = "id" → T[K] = number
 console.log(pluck(users, "name")); // ["Alice", "Bob"]
