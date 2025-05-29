@@ -13,6 +13,10 @@ function processInput(input: number[] | string[] | {message: string}): string | 
     throw new Error("에러")
 }
 
+console.log(processInput([1,2,3]))
+console.log(processInput(["hello","world"]))
+console.log(processInput({message: "TypeScript"}))
+
 
 //문제2 : 타입이 Car이면 대문자 리컨, Bike면 `Bike: ${Bike.type}`을 출력
 class Car {
@@ -37,6 +41,13 @@ function processVehicle(vehicle: Car | Bike): string {
     }
 }
 
+const myCar = new Car("Tesla")
+const myBike = new Bike("Mountain")
+console.log(processVehicle(myCar))
+console.log(processVehicle(myBike))
+
+
+
 
 //문제3 : 타입이 Admin이면 permissions 항목을 연결하고, user면 email을 리턴
 type Admin = {
@@ -59,6 +70,9 @@ function processUser(user: Admin | User): string {
   }
 }
 
+console.log(processUser({type: "admin", permissions: ["read", "write"]}))
+console.log(processUser({type:"user", email:"user@email.com"}))
+
 
 //문제 4 : 타입이 Rectangle이면 width * height, Circle이면 원 면적을 리턴
 type Rectangle = { width: number; height: number };
@@ -77,6 +91,8 @@ function calculateArea(shape: Rectangle | Circle): number {
   }
 }
 
+console.log(calculateArea({width: 10, height: 5}))
+console.log(calculateArea({radius: 7}))
 
 
 // 문제 5 : type을 사용하여 타입을 안전하게 좁히기 
@@ -89,16 +105,19 @@ type Circle2 = {
     radius: number 
 };
 
-function calculateArea2(shape: Square2 | Circle2): number {
+function calculateArea2(shape: Square2 | Circle2): number | void {
     if (shape.type === "square") {
         return shape.side * shape.side
     } else if (shape.type === "circle") {
         return Math.PI * shape.radius * shape.radius
     } else {
-         exhaustiveCheck(shape);
+        return exhaustiveCheck(shape);
     } 
 }
 
 function exhaustiveCheck(shape: never) {
     throw new Error("에러")
 }
+
+console.log(calculateArea2({type: "square", side: 5}))
+console.log(calculateArea2({type: "circle", radius: 7}))
