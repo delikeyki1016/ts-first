@@ -50,8 +50,10 @@ console.log(getAvailableProducts(products));
 // 나이가 없을때도 기본값(18)을 출력하기 때문에 age는 항상 리턴값이 있다.
 function updateUser(user: {name: string, age?:number}): {name: string, age: number} {
   // 나이가 제공되지 않으면 18로 설정
-  //user.age ? user.age : user.age = 18;
-  //return user;
+  // if (user.age === undefined || user.age === 0) {
+  //       user.age = 18
+  // } 
+  // return user as {name: string, age: number};
   return {...user, age: user.age ?? 18} //??는 null 또는 undefined일 때만 오른쪽 값을 사용
 }
 
