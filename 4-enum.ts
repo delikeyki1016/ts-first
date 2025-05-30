@@ -1,5 +1,5 @@
 //고급타입
-// Female, Male
+// enum
 enum Gender {
     FEMALE = "Female",
     MALE = "Male"
