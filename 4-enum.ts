@@ -1,5 +1,4 @@
-//고급타입
-// enum
+//고급타입 : enum
 enum Gender {
     FEMALE = "Female",
     MALE = "Male"
@@ -11,7 +10,7 @@ const M: Gender = Gender.MALE;
 console.log(F,M)
 
 enum SearchType {
-    DATE, //0 값을 지정하지 않으면 숫자
+    DATE, //0 값을 지정하지 않으면 숫자로 반환됨
     KEYWORD, //1
     ORDER //2
 }
