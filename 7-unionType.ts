@@ -28,7 +28,8 @@ function getDate(day: SearchType2): Date {
 
 console.log(getDate({start: "2024-01-01", end: ""}))
 
-//3. in : 타입안의 필드를 검사한다. 
+// "key" in Object ==> 객체에 해당 키가 존재하는지 확인
+//3. in : 타입의 필드 여부를 확인할 수 있다. (타입좁히기 활용)
 type Track = {
     //type: "track", 식별자를 넣어줄 수 있다.
     title: string,
