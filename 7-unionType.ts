@@ -50,18 +50,18 @@ function getName(result: Track | Artist): string {
 console.log(getName({name: "이소라", relase: "2024-01-01"}))
 console.log(getName({title: "바람이분다", relase: "2025-01-01"}))
 
-//4. is : 타입가드를 만듦 
+//4. is : 타입가드함수를 만들어서 사용하면 타입을 좁혀줌(타입 내로잉)
 
 // function 타입가드(변수: any): 변수 is 특정타입 {
 //     return 특정타입이 true인 조건식;
 // }
 
-// Track 타입여부 확인하는 함수 
+// Track 타입여부 확인하는 함수(타입가드함수)
 function isTrack(result: Track | Artist): result is Track {
     return (result as Track).title !== undefined
 }
 
-// Artist 타입여부 확인하는 함수
+// Artist 타입여부 확인하는 함수(타입가드함수)
 function isArtist(result: Track | Artist): result is Artist {
     return (result as Artist).name !== undefined
 }
