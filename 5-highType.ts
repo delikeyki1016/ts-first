@@ -23,7 +23,7 @@ interface NewType {
 }
 
 
-//never : 잘 사용하지 않음, 리턴값이 없다. 
+//never : 잘 사용하지 않음, 리턴값이 없다. ==> 함수가 절대 반환되지 않음, 주로 예외를 던질 때 사용
 // function infinite():never {
 //     while(true) {
 //         console.log("무한굴레")
